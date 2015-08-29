@@ -4,6 +4,8 @@ React Native component for select phone number from address book
 
 用于React Native的通讯录手机号选取模块
 
+![image](https://github.com/Spikef/react-native-phone-picker/raw/master/screenshots.gif)
+
 ## Usage
 
 ```javascript
