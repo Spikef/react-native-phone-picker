@@ -24,9 +24,11 @@ Run your project (Cmd+R)
 
 var PhonePicker = require('react-native-phone-picker');
 PhonePicker.select(function(phone) {
-    phone = phone.replace(/[^\d]/g, '');
-    if (phone && /^1[3|4|5|6|7|8|9][0-9]\d{8}$/.test(phone)) {
-        console.log(phone);
+    if (phone) {
+        phone = phone.replace(/[^\d]/g, '');
+        if (/^1[3|4|5|6|7|8|9][0-9]\d{8}$/.test(phone)) {
+            console.log(phone);
+        }
     }
 })
 ```
