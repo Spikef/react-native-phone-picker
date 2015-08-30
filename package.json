@@ -1,6 +1,6 @@
 {
   "name": "react-native-phone-picker",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "React Native component for select phone number from address book",
   "main": "index.js",
   "scripts": {
