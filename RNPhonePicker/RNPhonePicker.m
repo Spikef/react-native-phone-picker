@@ -56,7 +56,6 @@ RCT_EXPORT_METHOD(selectPhoneNumber:(RCTResponseSenderBlock) callback)
 NS_DEPRECATED_IOS(2_0, 8_0)
 
 {
-    NSLog(@"asfdf");
     if (property == kABPersonPhoneProperty) {
         ABMutableMultiValueRef phoneMulti = ABRecordCopyValue(person, property);
         long index = ABMultiValueGetIndexForIdentifier(phoneMulti,identifier);
