@@ -61,7 +61,21 @@ NS_DEPRECATED_IOS(2_0, 8_0)
         long index = ABMultiValueGetIndexForIdentifier(phoneMulti,identifier);
         NSString *phone = (NSString*)CFBridgingRelease(ABMultiValueCopyValueAtIndex(phoneMulti, index));
         
-        self.callback(@[phone]);
+        NSString *firstName = (__bridge NSString *)ABRecordCopyValue(person, kABPersonFirstNameProperty);
+        if (firstName==nil) {
+            firstName = @" ";
+        }
+        
+        NSString *lastName=(__bridge NSString *)ABRecordCopyValue(person, kABPersonLastNameProperty);
+        if (lastName==nil) {
+            lastName = @" ";
+        }
+        
+        NSDictionary *dic = @{@"fullName": [NSString stringWithFormat:@"%@%@", firstName, lastName]
+                              ,@"phone" : phone};
+        
+        self.callback(@[dic]);
+
         
         UIViewController *vc = [[[[UIApplication sharedApplication] delegate] window] rootViewController];
         [vc dismissViewControllerAnimated:YES completion:nil];
@@ -81,7 +95,21 @@ NS_AVAILABLE_IOS(8_0)
         long index = ABMultiValueGetIndexForIdentifier(phoneMulti,identifier);
         NSString *phone = (NSString*)CFBridgingRelease(ABMultiValueCopyValueAtIndex(phoneMulti, index));
         
-        self.callback(@[phone]);
+        NSString *firstName = (__bridge NSString *)ABRecordCopyValue(person, kABPersonFirstNameProperty);
+        if (firstName==nil) {
+            firstName = @" ";
+        }
+        
+        NSString *lastName=(__bridge NSString *)ABRecordCopyValue(person, kABPersonLastNameProperty);
+        if (lastName==nil) {
+            lastName = @" ";
+        }
+        
+        NSDictionary *dic = @{@"fullName": [NSString stringWithFormat:@"%@%@", firstName, lastName]
+                              ,@"phone" : phone};
+        
+        self.callback(@[dic]);
+
         
         UIViewController *vc = [[[[UIApplication sharedApplication] delegate] window] rootViewController];
         [vc dismissViewControllerAnimated:YES completion:nil];
