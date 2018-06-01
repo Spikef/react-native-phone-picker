@@ -57,7 +57,7 @@ freeline.py
 freeline/
 freeline_project_description.json
 
-build.gradle
+/build.gradle
 gradle.properties
 gradlew
 gradlew.bat
