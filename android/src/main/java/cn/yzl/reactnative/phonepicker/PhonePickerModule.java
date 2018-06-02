@@ -8,10 +8,6 @@ import com.facebook.react.bridge.Callback;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
-import com.tbruyelle.rxpermissions2.RxPermissions;
-
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.functions.Consumer;
 
 /**
  * Created by YZL on 2018/6/1.
@@ -32,7 +28,7 @@ public class PhonePickerModule extends ReactContextBaseJavaModule {
     }
 
     /**
-     * @param callback(error,info{name,phone})
+     * @param callback(name,phone,errorCode)
      */
     @ReactMethod
     public void selectPhoneNumber(final Callback callback) {
@@ -43,27 +39,9 @@ public class PhonePickerModule extends ReactContextBaseJavaModule {
         new Handler(Looper.getMainLooper()).post(new Runnable() {
             @Override
             public void run() {
-                checkPermisson(callback);
+                startPicker(callback);
             }
         });
-    }
-
-    private void checkPermisson(final Callback callback) {
-        RxPermissions rxPermissions = new RxPermissions(getCurrentActivity());
-        rxPermissions.request(android.Manifest.permission.READ_CONTACTS)
-                .subscribeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Consumer<Boolean>() {
-                    @Override
-                    public void accept(Boolean aBoolean) throws Exception {
-                        if (aBoolean) {
-                            startPicker(callback);
-                        } else {
-                            callback.invoke(null, null, "permission error");
-                        }
-                    }
-                });
-
-
     }
 
     private void startPicker(Callback callback) {

@@ -8,14 +8,24 @@
 - 在Android的CallBack中,是3个参数
 
 ```js
-//电话号码,名字,error:("permission error") 权限被拒绝,目前就这一个错误提示
+error{
+0:成功,
+1:权限被拒绝,
+2:权限被决绝,并不再询问,
+3:未知错误
+}
 callback(phone,name,error){
 
 }
 ```
 
+- android api 最低版本 为19
+
 
 ## link-Android
+
+关于方法数超限,已经移除多余无用的库,可能不会出现了,但是如果你引入了太多的android源生模块,可能还需要这么配置
+
 - android/settings.gradle
 ```
 include ':react-native-phone-picker'
@@ -72,19 +82,7 @@ public class MainApplication extends MultiDexApplication implements ReactApplica
 
 ```
 
-## 问题
 
-由于时间有限,所以没有优化,采用了几个第三方库,是以`compile`存在的
-增加了太多的方法,以后我可能会再优化一下
-- rxJava 2
-- rxAndroid
-- rxPermisson
-
-```gradle
-    compile 'io.reactivex.rxjava2:rxjava:2.1.3'
-    compile 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.4@aar'
-    compile 'io.reactivex.rxjava2:rxandroid:2.0.2'
-```
 
 # 原README
 
