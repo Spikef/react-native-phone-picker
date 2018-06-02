@@ -24,7 +24,7 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/silentcloud/react-native-phone-picker/issues"
+    "url": "https://github.com/silentcloud/react-native-phone-picker/issues",
     "url2": "https://github.com/yizeliang/react-native-phone-picker/issues"
   },
   "peerDependencies": {
