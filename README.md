@@ -1,5 +1,91 @@
 # react-native-phone-picker
 
+# 我的扩展
+
+## 扩展Android 实现
+
+- 动态申请权限
+- 在Android的CallBack中,是3个参数
+
+```js
+error{
+0:成功,
+1:权限被拒绝,
+2:权限被决绝,并不再询问,
+3:未知错误
+}
+callback(phone,name,error){
+
+}
+```
+
+- android api 最低版本 为19
+
+
+## link-Android
+
+关于方法数超限,已经移除多余无用的库,可能不会出现了,但是如果你引入了太多的android源生模块,可能还需要这么配置
+
+- android/settings.gradle
+```
+include ':react-native-phone-picker'
+project(':react-native-phone-picker').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-phone-picker/android/')
+```
+- android/app/build.gradle
+```
+
+android{
+    defaultConfig {
+        // 方法数超限
+        multiDexEnabled true
+    }
+}
+
+dependencies {
+...
+//添加
+    compile project(':react-native-phone-picker')
+}
+```
+
+- MainApplication.java
+
+```java
+//添加
+import android.support.multidex.MultiDexApplication;
+//注意,方法数可能超限,
+//将Application 改为 MultiDexApplication
+public class MainApplication extends MultiDexApplication implements ReactApplication {
+
+
+    private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
+        @Override
+        public boolean getUseDeveloperSupport() {
+            return BuildConfig.DEBUG;
+        }
+
+        @Override
+        protected List<ReactPackage> getPackages() {
+            return Arrays.<ReactPackage>asList(
+                    new MyReactPackage(),
+                    //添加
+                    new PhonePickerPackage()
+            );
+        }
+
+        @Override
+        protected String getJSMainModuleName() {
+            return "index";
+        }
+    };
+}
+
+```
+
+
+
+# 原README
+
 React Native component for select phone number from address book
 
 用于React Native的通讯录手机号选取模块

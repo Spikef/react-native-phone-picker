@@ -1,6 +1,6 @@
 {
   "name": "react-native-phone-picker",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "React Native component for select phone number from address book",
   "main": "index.js",
   "scripts": {
@@ -8,22 +8,24 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Spikef/react-native-phone-picker.git"
+    "url": "git+https://github.com/yizeliang/react-native-phone-picker.git"
   },
   "keywords": [
     "react-component",
     "react-native",
     "ios",
     "address",
-    "phone"
+    "phone",
+    "android"
   ],
   "author": {
-    "name": "Spikef",
-    "email": "Spikef@Foxmail.com"
+    "name": "Spikef&YiZeliang",
+    "email": "Spikef@Foxmail.com&zeliangyi@gmal.com"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/silentcloud/react-native-phone-picker/issues"
+    "url": "https://github.com/silentcloud/react-native-phone-picker/issues",
+    "url2": "https://github.com/yizeliang/react-native-phone-picker/issues"
   },
   "peerDependencies": {
     "react-native": ">=0.7"
